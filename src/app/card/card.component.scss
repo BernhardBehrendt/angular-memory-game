@@ -1,4 +1,5 @@
 @import "../../template/colors";
+@import "../../template/durations";
 
 $dimension-card-width: 275px;
 $dimension-card-height: 275px;
@@ -9,48 +10,82 @@ $dimension-card-height: 275px;
 }
 
 div.card {
-  background-color: $color-theme-darkest;
-  box-shadow: 0 0 4px $color-theme-darkest;
-  border: solid 1px $color-theme-darkest;
-
   // FIXME Bug in bootsrap 4
   // https://github.com/twbs/bootstrap/issues/20654
   display: inline-block;
-  width: 100%;
-  // FIXME END
-
-  transition: transform .75s;
-  transform: scale(0.8);
-
   width: $dimension-card-width;
   height: $dimension-card-height;
+  // FIXME END
 
   border-radius: 5px;
-  overflow: hidden;
+  position: relative;
+  border: none;
+  background-color: $color-theme-brightest;
 
-  .card-header {
-    color: $color-theme-bright;
-    background-color: $color-theme-bright;
+  transform: scale(0.9);
 
-    font-size: 2rem;
-    text-transform: capitalize;
-    text-align: center;
-    padding-top: 8px;
+  div.content, div.overlay {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    -moz-transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+    -moz-transition: transform $duration-normal cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    -webkit-transition: transform $duration-normal cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: transform $duration-normal cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    backface-visibility: hidden;
+
+    box-shadow: -1px -1px 6px #000;
+    background-color: $color-theme-brightest;
   }
 
-  .card-block {
-    height: $dimension-card-height - 55;
-    margin-top: -10px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  div.content {
+    transform: rotateY(180deg);
+
+    .card-header {
+      color: darken($color-theme-darkest, 30%);
+      background-color: $color-theme-brightest;
+
+      font-size: 2rem;
+      text-transform: capitalize;
+      text-align: center;
+      padding-top: 8px;
+    }
+
+    .card-block {
+      height: $dimension-card-height - 55;
+      margin-top: -10px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url(assets/flags/EUROPE.svg);
+      background-size: 10%;
+    }
+  }
+
+  .overlay {
+    transform: rotateY(0deg);
+
     background-image: url(assets/flags/EUROPE.svg);
-    background-size: 10%;
+    background-size: cover;
+    background-position: -70px center;
+    background-repeat: no-repeat;
   }
 
   &.flipped {
-    transition: transform 1s;
-    transform: rotateY(180deg);
-    backface-visibility: hidden;
+
+    div.content {
+      transform: rotateY(0deg);
+    }
+
+    div.overlay {
+      transform: rotateY(180deg);
+    }
   }
 }

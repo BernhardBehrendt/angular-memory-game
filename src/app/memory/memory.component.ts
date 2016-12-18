@@ -25,7 +25,7 @@ export class MemoryComponent implements OnInit {
 
   private _locked: boolean = false;
   private _countries: Countries;
-  private _resetDuration: number = .8;
+  private _resetDuration: number = 3;
 
 
   constructor(private _countriesservice: CountriesService) {
@@ -38,7 +38,6 @@ export class MemoryComponent implements OnInit {
 
   start(): void {
     this.cards = this._countries.getRandomizedList(this.getLevel());
-
     this.calculateRotations();
   }
 
@@ -81,11 +80,12 @@ export class MemoryComponent implements OnInit {
 
         if (isMatch) {
 
-          this.removeCards();
+          setTimeout(() => {
+            this.removeCards();
+            this.finish();
+            this._locked = false;
+          }, this._resetDuration * 1000);
 
-          this.finish();
-
-          this._locked = false;
         } else {
           setTimeout(() => {
             this.resetSelection();

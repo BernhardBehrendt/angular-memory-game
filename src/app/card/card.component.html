@@ -3,15 +3,18 @@
      class="card"
 >
 
-  <h3 class="card-header">{{toLabel(card.toLowerCase())}}</h3>
+  <div class="overlay"></div>
 
-  <div [ngStyle]="{
+  <div class="content">
+    <h3 class="card-header">{{toLabel(card.toLowerCase())}}</h3>
+
+    <div [ngStyle]="{
     'background-image':'url(assets/flags/' + card + '.svg)',
     'background-size':scale+'%'
   }"
-       class="card-block"
-  >
-
+         class="card-block"
+    >
+    </div>
   </div>
 </div>
 
