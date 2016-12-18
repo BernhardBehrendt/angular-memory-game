@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Output, EventEmitter, OnInit} from '@angular/core';
 import {CountriesService} from '../services/countries.service';
 import {Countries} from '../classes/countries';
 import {random} from '../helpers/number.random';
@@ -12,6 +12,8 @@ import {environment} from '../../environments/environment';
 })
 
 export class MemoryComponent implements OnInit {
+
+  @Output() goTo = new EventEmitter<string>();
 
   public cards: string[] = [];
   public rotations: any = {};
@@ -101,7 +103,7 @@ export class MemoryComponent implements OnInit {
 
   public finish() {
     if (this.cards.length === 0) {
-      alert('YOU WON');
+      this.goTo.emit('outro');
     }
   }
 }

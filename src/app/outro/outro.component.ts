@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Output, EventEmitter, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-outro',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OutroComponent implements OnInit {
 
-  constructor() { }
+  @Output() goTo = new EventEmitter<string>();
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  ok() {
+    this.goTo.emit('game');
+  }
 }

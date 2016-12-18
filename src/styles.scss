@@ -1,6 +1,17 @@
 @import "template/typography";
+@import "template/loader";
+@import "template/breakpoints";
 
 body {
   background-color: $color-theme-brightest;
-  padding: 40px;
+  padding-bottom: 60px;
+
+  @media screen and(min-width: $large) {
+    padding: 40px;
+  }
+
+  p.loading {
+    transform: scale(0.75);
+    margin-top: -50px;
+  }
 }

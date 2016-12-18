@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Output, EventEmitter, OnInit} from '@angular/core';
 
 
 @Component({
@@ -9,11 +9,16 @@ import {Component, OnInit} from '@angular/core';
 
 export class IntroComponent implements OnInit {
 
+  @Output() goTo = new EventEmitter<string>();
 
   constructor() {
   }
 
   ngOnInit() {
+  }
+
+  ok() {
+    this.goTo.emit('game');
   }
 
 }

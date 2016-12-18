@@ -28,3 +28,11 @@ h1, h2, h3 {
     columns:5;
   }
 }
+
+.btn {
+  z-index: 1000;
+  cursor: pointer;
+  position: fixed;
+  bottom: 1px;
+  right: 0px;
+}
