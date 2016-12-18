@@ -1,0 +1,87 @@
+@import "breakpoints";
+@import "colors";
+
+h1, h2, h3, h4, h5, h6, p, span, div, body {
+  font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+
+  color:darken($color-theme-darkest,10%);
+
+  @media screen and(max-width:$xsmall){font-weight:700; font-size:4rem;} // DONE
+  @media screen and(min-width:$small){font-weight:700; font-size:6.3rem;} // DONE
+  @media screen and(min-width:$medium){font-weight:500; font-size:9.2rem;} // DONE
+  @media screen and(min-width:$large){font-weight:700; font-size:12rem;} // DONE
+  @media screen and(min-width:$xlarge){font-weight:500; font-size:16rem;} // DONE
+}
+
+h2 {
+
+  color:darken($color-theme-dark,12%);
+
+
+  @media screen and(max-width:$xsmall){font-weight:400; font-size:3.6rem;} // DONE
+  @media screen and(min-width:$small){font-weight:400; font-size:5.4rem;} // DONE
+  @media screen and(min-width:$medium){font-weight:400; font-size:7.8rem;} // DONE
+  @media screen and(min-width:$large){font-weight:400; font-size:10.4rem;} // DONE
+  @media screen and(min-width:$xlarge){font-weight:400; font-size:14.6rem;} //DONE
+}
+
+h3 {
+
+  color:$color-theme-dark;
+
+  @media screen and(max-width:$xsmall){font-weight:400; font-size:3rem;} // DONE
+  @media screen and(min-width:$small){font-weight:400; font-size:5rem;} // DONE
+  @media screen and(min-width:$medium){font-weight:300; font-size:7rem;} // DONE
+  @media screen and(min-width:$large){font-weight:300; font-size:10rem;} // DONE
+  @media screen and(min-width:$xlarge){font-weight:300; font-size:14rem;} //DONE
+}
+
+h4 {
+
+  color:darken($color-theme-darkest,12%);
+
+  @media screen and(max-width:$xsmall){font-weight:300; font-size:2.4rem;} // DONE
+  @media screen and(min-width:$small){font-weight:300; font-size:4.8rem;} // DONE
+  @media screen and(min-width:$medium){font-weight:300; font-size:6rem;} // DONE
+  @media screen and(min-width:$large){font-weight:300; font-size:8rem;} // DONE
+  @media screen and(min-width:$xlarge){font-weight:300; font-size:12rem;} //DONE
+}
+
+h5 {
+  color:darken($color-theme-darkest,24%);
+
+  @media screen and(max-width:$xsmall){font-weight:500; font-size:1.6rem;} //DONE
+  @media screen and(min-width:$small){font-weight:500; font-size:3.2rem;}  // DONE
+  @media screen and(min-width:$medium){font-weight:400; font-size:4rem;} // DONE
+  @media screen and(min-width:$large){font-weight:300; font-size:6rem;} // DONE
+  @media screen and(min-width:$xlarge){font-weight:300; font-size:8rem;} //DONE
+}
+
+h6 {
+
+  color:darken($color-theme-darkest,48%);
+
+  @media screen and(max-width:$xsmall){font-weight:300; font-size:1.2rem;} // DONE
+  @media screen and(min-width:$small){font-weight:300; font-size:2.4rem;} // DONE
+  @media screen and(min-width:$medium){font-weight:300; font-size:3.8rem;} // DONE
+  @media screen and(min-width:$large){font-weight:300; font-size:4.2rem;} // DONE
+  @media screen and(min-width:$xlarge){font-weight:300; font-size:6.4rem;} // DONE
+}
+
+
+p {
+
+  color:darken($color-theme-darkest,30%);
+
+  padding-top:20px;
+  padding-bottom: 20px;
+
+  @media screen and(max-width:$xsmall){font-weight:300; font-size:1.2rem;} // DONE
+  @media screen and(min-width:$small){font-weight:300; font-size:2rem;line-height:2.4rem;} // DONE
+  @media screen and(min-width:$medium){font-weight:300; font-size:2.2rem;line-height:2.6rem;} // DONE
+  @media screen and(min-width:$large){font-weight:300; font-size:2.4rem;line-height:2.8rem;} // DONE
+  @media screen and(min-width:$xlarge){font-weight:300; font-size:3rem;line-heigth:3.2rem;} // DONE
+}

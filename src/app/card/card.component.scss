@@ -1,0 +1,56 @@
+@import "../../template/colors";
+
+$dimension-card-width: 275px;
+$dimension-card-height: 275px;
+
+:host {
+  display: block;
+  overflow: visible;
+}
+
+div.card {
+  background-color: $color-theme-darkest;
+  box-shadow: 0 0 4px $color-theme-darkest;
+  border: solid 1px $color-theme-darkest;
+
+  // FIXME Bug in bootsrap 4
+  // https://github.com/twbs/bootstrap/issues/20654
+  display: inline-block;
+  width: 100%;
+  // FIXME END
+
+  transition: transform .75s;
+  transform: scale(0.8);
+
+  width: $dimension-card-width;
+  height: $dimension-card-height;
+
+  border-radius: 5px;
+  overflow: hidden;
+
+  .card-header {
+    color: $color-theme-bright;
+    background-color: $color-theme-bright;
+
+    font-size: 2rem;
+    text-transform: capitalize;
+    text-align: center;
+    padding-top: 8px;
+  }
+
+  .card-block {
+    height: $dimension-card-height - 55;
+    margin-top: -10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(assets/flags/EUROPE.svg);
+    background-size: 10%;
+  }
+
+  &.flipped {
+    transition: transform 1s;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+  }
+}

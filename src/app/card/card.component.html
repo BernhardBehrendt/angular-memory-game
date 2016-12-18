@@ -1,0 +1,17 @@
+<div (click)="selected()"
+     [ngClass]="{'flipped':flipped}"
+     class="card"
+>
+
+  <h3 class="card-header">{{toLabel(card.toLowerCase())}}</h3>
+
+  <div [ngStyle]="{
+    'background-image':'url(assets/flags/' + card + '.svg)',
+    'background-size':scale+'%'
+  }"
+       class="card-block"
+  >
+
+  </div>
+</div>
+

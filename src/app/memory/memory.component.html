@@ -1,0 +1,42 @@
+<div *ngIf="cards.length===0" class="container">
+
+  <div class="level col-sm-12 text-xs-center">
+    <h1>Let's start make the worl as nice as long ago</h1>
+  </div>
+
+  <div class="level col-sm-12 text-xs-center">
+
+    <h3>-Select your level-</h3>
+
+    <pagination
+      [directionLinks]="false"
+      [totalItems]="levels.length"
+      [itemsPerPage]="1"
+      [(ngModel)]="defaultLevel"
+      (pageChanged)="setLevel($event)"
+    ></pagination>
+
+  </div>
+
+  <div class="col-lg-12">
+    <button (click)="start()"
+            type="button"
+            class="btn btn-primary btn-lg btn-block"
+    >
+      Start Memory Game
+    </button>
+  </div>
+
+</div>
+
+<div *ngIf="cards.length>0" class="memory card-columns">
+
+  <app-card
+    *ngFor="let card of cards"
+    [ngStyle]="{'transform':'rotate('+rotations[card]+'deg)'}"
+    (selection)="doSelection($event)"
+    [scale]="scales[card]"
+    [card]="card"
+    [flipped]="(selection.indexOf(card)!==-1)"></app-card>
+
+</div>

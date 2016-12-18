@@ -1,0 +1,30 @@
+@import "../../template/colors";
+
+h1, h2, h3 {
+  color: $color-theme-darkest;
+}
+
+.level {
+
+}
+
+.memory {
+  columns: 1;
+
+
+  @media screen and(min-width: 570px) {
+    columns:2;
+  }
+
+  @media screen and(min-width: 800px) {
+    columns:3;
+  }
+
+  @media screen and(min-width: 1115px) {
+    columns:4;
+  }
+
+  @media screen and(min-width: 1400px) {
+    columns:5;
+  }
+}
