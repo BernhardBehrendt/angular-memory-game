@@ -61,15 +61,7 @@ export class MemoryComponent implements OnInit {
   }
 
   resetSelection(): void {
-    this.selection = [];
-  }
-
-  removeCards(): void {
-    this.selection.forEach((cardName: string): void => {
-      this.cards.splice(this.cards.indexOf(cardName), 1);
-    });
-
-    this.resetSelection();
+    this.selection.splice(this.selection.length - 2, 2);
   }
 
   doSelection(label: string): void {
@@ -77,17 +69,12 @@ export class MemoryComponent implements OnInit {
       this._locked = true;
       this.selection.push(label);
 
-      if (this.selection.length === 2) {
+      if (this.selection.length % 2 === 0) {
         let isMatch: boolean = this._countries.isMatch(this.selection);
 
         if (isMatch) {
-
-          setTimeout(() => {
-            this.removeCards();
-            this.finish();
-            this._locked = false;
-          }, this._resetDuration * 1000);
-
+          this.isFinished();
+          this._locked = false;
         } else {
           setTimeout(() => {
             this.resetSelection();
@@ -98,12 +85,13 @@ export class MemoryComponent implements OnInit {
         this._locked = false;
       }
     }
-
   }
 
-  public finish() {
-    if (this.cards.length === 0) {
-      this.goTo.emit('outro');
+  public isFinished() {
+    if (this.cards.length === this.selection.length) {
+      setTimeout(() => {
+        this.goTo.emit('outro');
+      }, this._resetDuration * 1000);
     }
   }
 }

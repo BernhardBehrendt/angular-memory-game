@@ -15,6 +15,7 @@ export class CardComponent implements OnInit {
   @Input() card: string;
   @Input() flipped: boolean;
   @Input() scale: number;
+  @Input() paired: boolean;
   @Output() selection = new EventEmitter<string>()
 
   constructor() {
@@ -25,6 +26,10 @@ export class CardComponent implements OnInit {
 
 
   selected() {
-    this.selection.emit(this.card);
+    if (!this.paired) {
+      this.selection.emit(this.card);
+    }else{
+      console.log('already paired');
+    }
   }
 }

@@ -40,8 +40,8 @@ export class Countries {
         // let name: string = '';
         // let exit: string = '';
 
-        if (name === selection[0] && exit === selection[1] ||
-          name === selection[1] && exit === selection[0]) {
+        if (name === selection[selection.length - 2] && exit === selection[selection.length - 1] ||
+          name === selection[selection.length - 1] && exit === selection[selection.length - 2]) {
           isMatch = true;
         }
 

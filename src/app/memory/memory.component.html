@@ -1,12 +1,8 @@
 <div *ngIf="cards.length===0" class="container">
 
   <div class="level col-sm-12 text-xs-center">
-    <h1>Let's start make the worl as nice as long ago</h1>
-  </div>
-
-  <div class="level col-sm-12 text-xs-center">
-
-    <h3>-Select your level-</h3>
+    <h2>The Game</h2>
+    <h6>-Select your level-</h6>
 
     <pagination
       [directionLinks]="false"
@@ -37,6 +33,7 @@
     (selection)="doSelection($event)"
     [scale]="scales[card]"
     [card]="card"
+    [paired]="selection.indexOf(card)!==-1"
     [flipped]="(selection.indexOf(card)!==-1)"></app-card>
 
 </div>
