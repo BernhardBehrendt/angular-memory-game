@@ -15,20 +15,23 @@ export class CardComponent implements OnInit {
   @Input() card: string;
   @Input() flipped: boolean;
   @Input() scale: number;
-  @Input() paired: boolean;
+  @Input() paired: boolean = false;
   @Output() selection = new EventEmitter<string>()
 
   constructor() {
   }
 
   ngOnInit() {
+    setInterval(() => {
+      console.log(this.paired);
+    }, 5000);
   }
 
 
   selected() {
     if (!this.paired) {
       this.selection.emit(this.card);
-    }else{
+    } else {
       console.log('already paired');
     }
   }

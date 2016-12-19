@@ -18,6 +18,7 @@ export class MemoryComponent implements OnInit {
   public cards: string[] = [];
   public rotations: any = {};
   public selection: string[] = [];
+  public pairs: string[] = [];
 
 
   public defaultLevel: number = 2;
@@ -73,6 +74,10 @@ export class MemoryComponent implements OnInit {
         let isMatch: boolean = this._countries.isMatch(this.selection);
 
         if (isMatch) {
+
+          this.pairs.push(this.selection[this.selection.length-2]);
+          this.pairs.push(this.selection[this.selection.length-1]);
+
           this.isFinished();
           this._locked = false;
         } else {

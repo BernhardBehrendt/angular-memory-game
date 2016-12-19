@@ -1,5 +1,6 @@
 @import "../../template/colors";
 @import "../../template/durations";
+@import "../../template/breakpoints";
 
 $dimension-card-width: 275px;
 $dimension-card-height: 275px;
@@ -7,6 +8,46 @@ $dimension-card-height: 275px;
 :host {
   display: block;
   overflow: visible;
+
+  > div {
+    transition: transform $duration-fast;
+
+    @media screen and(max-width: $xsmall) {
+      transform: scale(1.0);
+    }
+
+    @media screen and(min-width: 544px) {
+      transform: scale(0.8);
+    }
+
+    @media screen and(min-width: $small) {
+      transform: scale(0.9);
+    }
+
+    @media screen and(min-width: $medium) {
+      transform: scale(0.8);
+    }
+
+    @media screen and(min-width: 800px) {
+      transform: scale(0.9);
+    }
+
+    @media screen and(min-width: $large) {
+      transform: scale(0.8);
+    }
+
+    @media screen and(min-width: $xlarge) {
+      transform: scale(0.7);
+    }
+
+    @media screen and(min-width: 1400px) {
+      transform: scale(0.8);
+    }
+
+    @media screen and(min-width: 1600px) {
+      transform: scale(0.9);
+    }
+  }
 }
 
 div.card {
@@ -16,25 +57,23 @@ div.card {
   width: $dimension-card-width;
   height: $dimension-card-height;
   // FIXME END
+  cursor: pointer;
 
   border-radius: 5px;
   position: relative;
   border: none;
   background-color: $color-theme-brightest;
 
-  transform: scale(0.9);
-
   div.content, div.overlay {
     position: absolute;
-
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
 
-    -moz-transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
+    //-moz-transform-style: preserve-3d;
+    //-webkit-transform-style: preserve-3d;
+    //transform-style: preserve-3d;
 
     -moz-transition: transform $duration-normal cubic-bezier(0.68, -0.55, 0.265, 1.55);
     -webkit-transition: transform $duration-normal cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -47,8 +86,11 @@ div.card {
 
   div.content {
     transform: rotateY(180deg);
-
+    z-index: 2;
     .card-header {
+      -webkit-transition-delay: 2s;
+      transition-delay: 2s;
+      transition: background-color $duration-smooth, color $duration-smooth;
       color: darken($color-theme-darkest, 30%);
       background-color: $color-theme-brightest;
 
@@ -71,7 +113,7 @@ div.card {
 
   .overlay {
     transform: rotateY(0deg);
-
+    z-index: 1;
     background-image: url(assets/flags/EUROPE.svg);
     background-size: cover;
     background-position: -70px center;
@@ -87,5 +129,17 @@ div.card {
     div.overlay {
       transform: rotateY(180deg);
     }
+  }
+
+  &.paired {
+    cursor: default;
+
+    .content {
+      .card-header {
+        color: $color-theme-brightest;
+        background-color: $color-theme-darkest;
+      }
+    }
+
   }
 }

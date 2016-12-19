@@ -25,7 +25,9 @@
 
 </div>
 
-<div *ngIf="cards.length>0" class="memory card-columns">
+<!--card-columns-->
+
+<div *ngIf="cards.length>0" class="memory container-fluid row">
 
   <app-card
     *ngFor="let card of cards"
@@ -33,7 +35,7 @@
     (selection)="doSelection($event)"
     [scale]="scales[card]"
     [card]="card"
-    [paired]="selection.indexOf(card)!==-1"
-    [flipped]="(selection.indexOf(card)!==-1)"></app-card>
-
+    [paired]="pairs.indexOf(card)!==-1"
+    [flipped]="(selection.indexOf(card)!==-1)"
+    class="text-xs-center col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2"></app-card>
 </div>
