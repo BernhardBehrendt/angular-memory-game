@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-game-statistics',
@@ -7,9 +7,50 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameStatisticsComponent implements OnInit {
 
-  constructor() { }
+  private _lessestPossibleClicks: number;
+  private _currentClicks: number;
+  private _startTime: Date;
+  private _endTime: Date;
 
-  ngOnInit() {
+  private _clicks: any = {}; // Save timestamp and events (first card, second card, match, missmatch
+
+  constructor() {
+
   }
 
+  get lessestPossibleClicks(): number {
+    return this._lessestPossibleClicks;
+  }
+
+  set lessestPossibleClicks(value: number) {
+    this._lessestPossibleClicks = value;
+  }
+
+  get currentClicks(): number {
+    return this._currentClicks;
+  }
+
+  set currentClicks(value: number) {
+    this._currentClicks = value;
+  }
+
+  get startTime(): Date {
+    return this._startTime;
+  }
+
+  set startTime(value: Date) {
+    this._startTime = value;
+  }
+
+  get endTime(): Date {
+    return this._endTime;
+  }
+
+  set endTime(value: Date) {
+    this._endTime = value;
+  }
+
+  ngOnInit() {
+    alert('INIT STATS');
+  }
 }

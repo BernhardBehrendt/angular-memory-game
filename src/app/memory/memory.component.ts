@@ -1,8 +1,16 @@
+// Core
 import {Component, Output, EventEmitter, OnInit} from '@angular/core';
-import {CountriesService} from '../services/countries.service';
-import {Countries} from '../classes/countries';
-import {random} from '../helpers/number.random';
+
+// Environment
 import {environment} from '../../environments/environment';
+
+// Classes
+import {Countries} from '../classes/countries';
+// import {random} from '../helpers/number.random';
+
+// Services
+import {CountriesService} from '../services/countries.service';
+import {StatisticsService} from "../services/statistics.service";
 
 
 @Component({
@@ -30,17 +38,16 @@ export class MemoryComponent implements OnInit {
   private _countries: Countries;
   private _resetDuration: number = 3;
 
-
-  constructor(private _countriesservice: CountriesService) {
+  constructor(private _countriesservice: CountriesService, private _statisticsServise: StatisticsService) {
     this._countries = _countriesservice.getAll();
   }
 
   ngOnInit() {
-    // this.start();
   }
 
   start(): void {
     this.cards = this._countries.getRandomizedList(this.getLevel());
+
     this.calculateRotations();
   }
 
@@ -75,8 +82,8 @@ export class MemoryComponent implements OnInit {
 
         if (isMatch) {
 
-          this.pairs.push(this.selection[this.selection.length-2]);
-          this.pairs.push(this.selection[this.selection.length-1]);
+          this.pairs.push(this.selection[this.selection.length - 2]);
+          this.pairs.push(this.selection[this.selection.length - 1]);
 
           this.isFinished();
           this._locked = false;
@@ -84,7 +91,7 @@ export class MemoryComponent implements OnInit {
           setTimeout(() => {
             this.resetSelection();
             this._locked = false;
-          }, this._resetDuration * 1000);
+          }, this._resetDuration / 4 * 1000);
         }
       } else {
         this._locked = false;

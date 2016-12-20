@@ -10,6 +10,7 @@ import {toLabel} from '../helpers/string.to-label';
 export class CardComponent implements OnInit {
 
   public toLabel = toLabel;
+  public wasVisible: boolean = false;
 
 
   @Input() card: string;
@@ -22,17 +23,13 @@ export class CardComponent implements OnInit {
   }
 
   ngOnInit() {
-    setInterval(() => {
-      console.log(this.paired);
-    }, 5000);
   }
 
 
   selected() {
     if (!this.paired) {
+      this.wasVisible = true;
       this.selection.emit(this.card);
-    } else {
-      console.log('already paired');
     }
   }
 }

@@ -6,6 +6,7 @@ $dimension-card-width: 275px;
 $dimension-card-height: 275px;
 
 :host {
+  float: left;
   display: block;
   overflow: visible;
 
@@ -64,7 +65,7 @@ div.memory-card {
   //position: relative;
   cursor: pointer;
 
-  background-color: $color-theme-brightest;
+  //background-color: $color-theme-brightest;
 
   width: $dimension-card-width;
   height: $dimension-card-height;
@@ -83,8 +84,8 @@ div.memory-card {
     bottom: 0;
     right: 0;
 
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
 
     border: solid 1px $color-theme-darkest;
 
@@ -93,47 +94,62 @@ div.memory-card {
     //transform-style: preserve-3d;
 
     // FIXME CAUSES ISSUES AFTER UILD IN WEBKIT ENGINES
-    -moz-transition: transform $duration-xfast ease-in-out;
-    -webkit-transition: transform $duration-xfast ease-in-out;
-    transition: transform $duration-xfast ease-in-out;
+    -moz-transition: transform $duration-xfast ease-in-out, border-color $duration-fast, ease-in-out;
+    -webkit-transition: transform $duration-xfast ease-in-out, border-color $duration-fast, ease-in-out;
+    transition: transform $duration-xfast ease-in-out, border-color $duration-fast, ease-in-out;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    //perspective: 1000px;
-
 
   }
 
+  div.shadow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
   div.content {
+    div.shadow {
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+
+    background-color: #333;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(assets/flags/EUROPE.svg);
+
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
     z-index: 2;
-    .card-header {
-      -webkit-transition-delay: 2s;
-      transition-delay: 2s;
-      -webkit-transition: background-color $duration-smooth, color $duration-smooth;
-      transition: background-color $duration-smooth, color $duration-smooth;
-      color: darken($color-theme-darkest, 30%);
-      background-color: $color-theme-brightest;
 
+    border: solid 12px $color-theme-brightest;
+
+    h3 {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+
+      width: 100%;
+      height: 46px;
+      padding-top: 4px;
+      margin-bottom: 0;
       font-size: 2rem;
-      text-transform: capitalize;
-      text-align: center;
-      padding-top: 8px;
-    }
 
-    .card-block {
-      height: $dimension-card-height - 55;
-      margin-top: -10px;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-image: url(assets/flags/EUROPE.svg);
-      background-size: 10%;
+      text-align: center;
+      color: $color-theme-brightest;
+
+      background-color: rgba(0, 0, 0, 0.8);
     }
   }
 
   .overlay {
-    opacity: 0.5;
+
     -webkit-transform: rotateY(0deg);
     transform: rotateY(0deg);
     z-index: 1;
@@ -160,10 +176,7 @@ div.memory-card {
     cursor: default;
 
     .content {
-      .card-header {
-        color: $color-theme-brightest;
-        background-color: $color-theme-darkest;
-      }
+      border-color: $color-theme-darkest;
     }
   }
 }
