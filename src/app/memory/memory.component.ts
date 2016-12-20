@@ -56,7 +56,7 @@ export class MemoryComponent implements OnInit {
     this
       .cards
       .forEach((cardText: string): void => {
-          this.rotations[cardText] = random(-3.14, 3.14);
+          this.rotations[cardText] = 0
         }
       );
   }
