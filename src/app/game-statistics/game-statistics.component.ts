@@ -12,7 +12,7 @@ export class GameStatisticsComponent implements OnInit {
   private _startTime: Date;
   private _endTime: Date;
 
-  private _clicks: any = {}; // Save timestamp and events (first card, second card, match, missmatch
+  private _clicks: any = {}; // Save timestamp and events (first memory-card, second memory-card, match, missmatch
 
   constructor() {
 

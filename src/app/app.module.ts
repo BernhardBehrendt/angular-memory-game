@@ -12,11 +12,11 @@ import {AppComponent} from './app.component';
 import {MemoryComponent} from './memory/memory.component';
 import {IntroComponent} from './intro/intro.component';
 import {OutroComponent} from './outro/outro.component';
-import {CardComponent} from './card/card.component';
+import {MemoryCardComponent} from './memory-card/memory-card.component';
 import {GameStatisticsComponent} from './game-statistics/game-statistics.component';
 
 // Services
-import {CountriesService} from './services/countries.service';
+import {MemoryCardsService} from './services/memory-cards.service';
 import {StatisticsService} from './services/statistics.service';
 
 @NgModule({
@@ -26,7 +26,7 @@ import {StatisticsService} from './services/statistics.service';
     MemoryComponent,
     IntroComponent,
     OutroComponent,
-    CardComponent,
+    MemoryCardComponent,
     GameStatisticsComponent
   ],
 
@@ -39,7 +39,7 @@ import {StatisticsService} from './services/statistics.service';
   ],
 
   providers: [
-    CountriesService,
+    MemoryCardsService,
     StatisticsService
   ],
 

@@ -1,0 +1,171 @@
+@import "../../template/colors";
+@import "../../template/durations";
+@import "../../template/breakpoints";
+
+$dimension-card-width: 275px;
+$dimension-card-height: 275px;
+
+:host {
+  float: left;
+  display: block;
+  overflow: visible;
+
+  > div {
+    -webkit-transition: transform $duration-fast;
+    transition: transform $duration-fast;
+
+    @media screen and(max-width: $xsmall) {
+      -webkit-transform: scale(1.0);
+      transform: scale(1.0);
+    }
+
+    @media screen and(min-width: 544px) {
+      -webkit-transform: scale(0.8);
+      transform: scale(0.8);
+    }
+
+    @media screen and(min-width: $small) {
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+
+    @media screen and(min-width: $medium) {
+      -webkit-transform: scale(0.8);
+      transform: scale(0.8);
+    }
+
+    @media screen and(min-width: 800px) {
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+
+    @media screen and(min-width: $large) {
+      -webkit-transform: scale(0.8);
+      transform: scale(0.8);
+    }
+
+    @media screen and(min-width: $xlarge) {
+      -webkit-transform: scale(0.7);
+      transform: scale(0.7);
+    }
+
+    @media screen and(min-width: 1400px) {
+      -webkit-transform: scale(0.8);
+      transform: scale(0.8);
+    }
+
+    @media screen and(min-width: 1600px) {
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+  }
+}
+
+div.memory-card {
+
+  cursor: pointer;
+
+  width: $dimension-card-width;
+  height: $dimension-card-height;
+
+  border-radius: 5px;
+  border: none;
+
+  div.content, div.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border: solid 1px $color-theme-darkest;
+
+    -moz-transition: transform $duration-xfast ease-in-out;
+    -webkit-transition: transform $duration-xfast ease-in-out;
+    transition: transform $duration-xfast ease-in-out;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+  }
+
+  div.shadow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  div.content {
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position:center;
+
+    div.shadow {
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+
+    background-color: #222;
+
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    z-index: 2;
+
+    border: solid 4px $color-theme-brightest;
+
+    h3 {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+
+      width: 100%;
+      height: 46px;
+      padding-top: 4px;
+      margin-bottom: 0;
+      font-size: 2rem;
+
+      text-align: center;
+      color: $color-theme-brightest;
+
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  }
+
+  .overlay {
+
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    z-index: 1;
+    //background-image: url(assets/flags/EUROPE.svg);
+    //background-size: cover;
+    //background-position: -70px center;
+    //background-repeat: no-repeat;
+  }
+
+  &.flipped {
+
+    div.content {
+      -webkit-transform: rotateY(0deg);
+      transform: rotateY(0deg);
+    }
+
+    div.overlay {
+      -webkit-transform: rotateY(180deg);
+      transform: rotateY(180deg);
+    }
+  }
+
+  &.paired {
+    cursor: default;
+
+    .content {
+      border-color: $color-theme-darkest;
+    }
+  }
+}

@@ -5,11 +5,11 @@ import {Component, Output, EventEmitter, OnInit} from '@angular/core';
 import {environment} from '../../environments/environment';
 
 // Classes
-import {Countries} from '../classes/countries';
+import {MemoryCards} from '../classes/memory-cards';
 // import {random} from '../helpers/number.random';
 
 // Services
-import {CountriesService} from '../services/countries.service';
+import {MemoryCardsService} from '../services/memory-cards.service';
 import {StatisticsService} from "../services/statistics.service";
 
 
@@ -32,21 +32,20 @@ export class MemoryComponent implements OnInit {
   public defaultLevel: number = 2;
   public levels: number[] = [3, 6, 9, 12, 15, 18, 21, 28];
   public level: number = this.getLevel();
-  public scales: any = environment.scales;
 
   private _locked: boolean = false;
-  private _countries: Countries;
+  private _memoryCards: MemoryCards;
   private _resetDuration: number = 3;
 
-  constructor(private _countriesservice: CountriesService, private _statisticsServise: StatisticsService) {
-    this._countries = _countriesservice.getAll();
+  constructor(private _MemoryCardsService: MemoryCardsService, private _statisticsServise: StatisticsService) {
+    this._memoryCards = _MemoryCardsService.getAll();
   }
 
   ngOnInit() {
   }
 
   start(): void {
-    this.cards = this._countries.getRandomizedList(this.getLevel());
+    this.cards = this._memoryCards.getRandomizedList(this.getLevel());
 
     this.calculateRotations();
   }
@@ -78,7 +77,7 @@ export class MemoryComponent implements OnInit {
       this.selection.push(label);
 
       if (this.selection.length % 2 === 0) {
-        let isMatch: boolean = this._countries.isMatch(this.selection);
+        let isMatch: boolean = this._memoryCards.isMatch(this.selection);
 
         if (isMatch) {
 
