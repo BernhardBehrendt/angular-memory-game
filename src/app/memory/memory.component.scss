@@ -7,7 +7,7 @@ h1, h2, h3 {
 
 .level {
   h2 {
-    margin-top: 80px;
+    margin-top: 30px;
 
     @media screen and(min-width: $medium) {
       margin-top: 10px;
@@ -16,7 +16,7 @@ h1, h2, h3 {
 
   h6 {
     margin-bottom: 20px;
-    margin-top: 200px;
+    //margin-top: 200px;
 
     @media screen and(min-width: $medium) {
       margin-top: 60px;

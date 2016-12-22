@@ -6,10 +6,6 @@ body {
   background-color: #222;
   padding-bottom: 60px;
 
-  @media screen and(min-width: $large) {
-    padding: 12px;
-  }
-
   p.loading {
     color:darken($color-theme-darkest,10%);
     transform: scale(0.75);
