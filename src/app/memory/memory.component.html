@@ -26,7 +26,7 @@
 </div>
 
 
-<div *ngIf="cards.length>0" class="memory">
+<div *ngIf="cards.length>0" class="memory clearfix">
 
   <app-memory-card
     *ngFor="let card of cards;let i = index"
@@ -37,21 +37,26 @@
     [flipped]="(selection.indexOf(card)!==-1)"
     class=""></app-memory-card>
 
-  <button *ngIf="!confirm" (click)="leave()"
+  <button *ngIf="!confirm"
+          (click)="leave()"
           type="button"
-          class="btn btn-primary btn-lg btn-block"
+          class="leave btn btn-primary btn-lg btn-block"
   >
     Leave Game
   </button>
 
-  <button style="width:45%;" *ngIf="confirm" type="button"
-          class="btn btn-danger btn-lg btn-block"
+  <button *ngIf="confirm"
+          (click)="exit()"
+          type="button"
+          class="exit btn btn-danger btn-lg btn-block"
   >
-    Leave
+    Ok
   </button>
-  <button style="width:45%;" *ngIf="confirm" type="button"
-          class="btn btn-success btn-lg btn-block"
+  <button *ngIf="confirm"
+          (click)="cancel()"
+          type="button"
+          class="cancel btn btn-success btn-lg btn-block"
   >
-    Continue
+    Cancel
   </button>
 </div>

@@ -56,6 +56,15 @@ export class MemoryComponent implements OnInit {
     this.confirm = true;
   }
 
+  cancel(): void {
+    this.confirm = false;
+  }
+
+  exit(): void {
+    this.confirm = false;
+    this.cards = [];
+  }
+
   getLevel(): number {
     return this.level;
   }

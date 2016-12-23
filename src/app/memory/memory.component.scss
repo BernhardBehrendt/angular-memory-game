@@ -27,7 +27,7 @@ h1, h2, h3 {
 
 .memory {
   //columns: 1;
-
+  padding-bottom: 60px;
   @media screen and(min-width: 570px) {
     //columns: 2;
   }
@@ -46,9 +46,29 @@ h1, h2, h3 {
 }
 
 .btn {
-  z-index: 1000;
+  z-index: 10;
   cursor: pointer;
   position: fixed;
-  bottom: 1px;
+  bottom: 0px;
   right: 0px;
+  &.leave {
+
+  }
+
+  &.cancel {
+    bottom: 0px;
+    right: 0px;
+    width: 50%;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-radius: 0;
+  }
+
+  &.exit {
+    bottom: 0px;
+    left: 0px;
+    width: 50%;
+    border-radius: 0;
+
+  }
 }

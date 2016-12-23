@@ -7,8 +7,12 @@ body {
   padding-bottom: 60px;
 
   p.loading {
-    color:darken($color-theme-darkest,10%);
+    color: darken($color-theme-darkest, 10%);
     transform: scale(0.75);
     margin-top: -50px;
+  }
+
+  .btn {
+    border-radius: 0;
   }
 }
