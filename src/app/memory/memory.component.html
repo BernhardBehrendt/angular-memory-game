@@ -36,4 +36,22 @@
     [paired]="pairs.indexOf(card)!==-1"
     [flipped]="(selection.indexOf(card)!==-1)"
     class=""></app-memory-card>
+
+  <button *ngIf="!confirm" (click)="leave()"
+          type="button"
+          class="btn btn-primary btn-lg btn-block"
+  >
+    Leave Game
+  </button>
+
+  <button style="width:45%;" *ngIf="confirm" type="button"
+          class="btn btn-danger btn-lg btn-block"
+  >
+    Leave
+  </button>
+  <button style="width:45%;" *ngIf="confirm" type="button"
+          class="btn btn-success btn-lg btn-block"
+  >
+    Continue
+  </button>
 </div>

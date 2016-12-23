@@ -28,6 +28,8 @@ export class MemoryComponent implements OnInit {
   public selection: string[] = [];
   public pairs: string[] = [];
 
+  public confirm = false;
+
 
   public defaultLevel: number = 2;
   public levels: number[] = [3, 6, 9, 12, 15, 18, 21, 28];
@@ -48,6 +50,10 @@ export class MemoryComponent implements OnInit {
     this.cards = this._memoryCards.getRandomizedList(this.getLevel());
 
     this.calculateRotations();
+  }
+
+  leave(): void {
+    this.confirm = true;
   }
 
   getLevel(): number {
