@@ -16,6 +16,6 @@ export class OutroComponent implements OnInit {
   }
 
   ok() {
-    this.goTo.emit('game');
+    this.goTo.emit('intro');
   }
 }

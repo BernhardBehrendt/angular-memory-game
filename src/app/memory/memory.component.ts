@@ -117,7 +117,7 @@ export class MemoryComponent implements OnInit {
     if (this.cards.length === this.selection.length) {
       setTimeout(() => {
         this.goTo.emit('outro');
-      }, this._resetDuration * 1000);
+      }, 100);
     }
   }
 }

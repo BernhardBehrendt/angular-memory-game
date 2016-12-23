@@ -26,7 +26,7 @@
 </div>
 
 
-<div *ngIf="cards.length>0" class="memory clearfix">
+<div *ngIf="cards.length>0" class="memory clearfix" [ngClass]="{'completed':cards.length === selection.length}">
 
   <app-memory-card
     *ngFor="let card of cards;let i = index"
@@ -52,6 +52,7 @@
   >
     Ok
   </button>
+
   <button *ngIf="confirm"
           (click)="cancel()"
           type="button"

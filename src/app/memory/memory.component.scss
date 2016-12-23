@@ -1,5 +1,6 @@
 @import "../../template/breakpoints";
 @import "../../template/colors";
+@import "../../template/durations";
 
 h1, h2, h3 {
   color: $color-theme-darkest;
@@ -26,8 +27,15 @@ h1, h2, h3 {
 }
 
 .memory {
+  -webkit-transition: all $duration-fast ease-in-out;
+  transition: all $duration-fast ease-in-out;
   //columns: 1;
   padding-bottom: 60px;
+
+  &.completed {
+    filter: blur(33px);
+  }
+
   @media screen and(min-width: 570px) {
     //columns: 2;
   }

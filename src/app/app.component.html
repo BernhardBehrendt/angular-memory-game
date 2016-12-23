@@ -1,4 +1,4 @@
 <app-intro (goTo)="goTo($event)" *ngIf="view==='intro'"></app-intro>
-<app-memory (goTo)="goTo($event)" *ngIf="view==='game'"></app-memory>
-<app-outro (goTo)="goTo($event)" *ngIf="view==='outro'"></app-outro>
+<app-memory (goTo)="goTo($event)" *ngIf="view==='game' || view === 'outro'"></app-memory>
+<app-outro (goTo)="goTo($event)" *ngIf="view === 'outro'"></app-outro>
 
