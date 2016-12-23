@@ -1,10 +1,11 @@
 :host {
-  position: absolute;
+  position: fixed;
+  overflow: auto;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.55);
 }
 
 .btn {
@@ -17,7 +18,7 @@
 
 .outro {
   h1 {
-    margin-top: 0;
+    margin-top: 10px;
     margin-bottom: 10px;
   }
 
